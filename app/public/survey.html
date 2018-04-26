@@ -1,0 +1,212 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Fill out the survey to find your best friend!</h1>
+    <form>
+        Name:
+        <br>
+        <input type="text" name="firstName" id="firstName">
+        <br>
+        <br> Mayonnaise is delicious.
+        <select name="agreeDisagree" id="q1">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> IPAs are the worst.
+        <select name="agreeDisagree" id="q2">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> Dancing is good for the soul.
+        <select name="agreeDisagree" id="q3">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> Everyone needs a day to binge watch TV every once in a while.
+        <select name="agreeDisagree" id="q4">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> It is important to spend quality time expoloring the great outdoors.
+        <select name="agreeDisagree" id="q5">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> Magic is real.
+        <select name="agreeDisagree" id="q6">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> The earth is flat.
+        <select name="agreeDisagree" id="q7">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> Coffee > Tea.
+        <select name="agreeDisagree" id="q8">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> Bears. Beets. Battlestar Galactica.
+        <select name="agreeDisagree" id="q9">
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br> That's what she said.
+        <select name="agreeDisagree" id="q10">
+            <option value="1 ">1 (Strongly Disagree)</option>
+            <option value="2 ">2</option>
+            <option value="3 ">3</option>
+            <option value="4 ">4</option>
+            <option value="5 ">5 (Strongly Agree</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="submit " id="submit">
+    </form>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var name;
+            var q1;
+            var q2;
+            var q3;
+            var q4;
+            var q5;
+            var q6;
+            var q7;
+            var q8;
+            var q9;
+            var q10;
+            var friends = [{
+                name: "Vanessa",
+                scores: [5, 4, 4, 2, 5, 1, 4, 5, 4, 2],
+                friendScore: 36
+            },
+            {
+                name: "Andrea",
+                scores: [1, 2, 3, 4, 5, 5, 4, 3, 2, 1],
+                friendScore: 30
+            },
+            {
+                name: "Roman",
+                scores: [2, 4, 5, 1, 1, 1, 5, 4, 3, 4],
+                friendScore: 33
+            },
+            {
+                name: "Brodie",
+                scores: [2, 4, 1, 5, 3, 2, 5, 5, 1, 3],
+                friendScore: 31
+            },
+            {
+                name: "Morgan",
+                scores: [2, 3, 1, 5, 3, 3, 2, 5, 1, 3],
+                friendScore: 28
+            },
+            {
+                name: "Chloe",
+                scores: [5, 5, 5, 4, 3, 3, 3, 3, 3, 3],
+                friendScore: 37
+            }];
+
+            //add new friends to friends array with answer values
+            function addFriends() {
+                $("#submit").on("click", function (event) {
+                    event.preventDefault();
+                    name = $("#firstName").val();
+                    q1 = parseInt($("select#q1").val());
+                    q2 = parseInt($("select#q2").val());
+                    q3 = parseInt($("select#q3").val());
+                    q4 = parseInt($("select#q4").val());
+                    q5 = parseInt($("select#q5").val());
+                    q6 = parseInt($("select#q6").val());
+                    q7 = parseInt($("select#q7").val());
+                    q8 = parseInt($("select#q8").val());
+                    q9 = parseInt($("select#q9").val());
+                    q10 = parseInt($("select#q10").val());
+
+                    var newFriend = {
+                        name: name,
+                        scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10],
+                        friendScore: q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10
+                    };
+                    //push new friend object into array
+                    friends.push(newFriend);
+                    parseFriends();
+
+
+
+
+                });
+            }
+            addFriends();
+
+            //function loops through each friend in array
+            function parseFriends() {
+                for (var friendsIndex = 0; friendsIndex < friends.length; friendsIndex++) {
+                    console.log(friends[friendsIndex]);
+                }
+            }
+
+
+            //compare user scores
+            // function compareValues() {
+            //     for (var i = 0; i < friends.length; i++) {
+            //         console.log(i[name].length - 1);
+            //     }
+
+
+            // }
+
+
+        });
+    </script>
+</body>
+
+</html>
